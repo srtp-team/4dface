@@ -1,7 +1,7 @@
 
 ## Build & run
 
-1. Clone with submodules: `git clone --recursive git://github.com/srtp-team/4dface.git`, or, if you've already cloned it, get the submodules with `git submodule update --init --recursive` inside the `4dface` directory.
+1. Clone with submodules: `git clone --recursive //github.com/srtp-team/Final-SRTP-DEMO.git`, or, if you've already cloned it, get the submodules with `git submodule update --init --recursive` inside the `4dface` directory.
 
 2. Make sure you've got boost (>=1.54.0 should do), OpenCV (>=3.0), Eigen (>=3.3.0) and a recent compiler (>=gcc-5, >=clang-4, >=VS2017) installed. For Ubuntu 14.04 and newer, this will do the trick:
     ```
