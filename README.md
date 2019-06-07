@@ -30,7 +30,8 @@
 7.Download file `face_landmarks_model_rcr_68.bin` from `https://pan.baidu.com/s/1qP4nR5Isw5_rxLmVEQu88g`.The key is`zoyy`.And put it in `\4dface\build` 
 
 Then just double-click the `4dface` app from the install-directory or run with `4dface -i videofile` to run on a video.
-example:  `cd   \4dface\build\Release`     `4dface.exe -i Obama.mp4`
+example:  `cd   \4dface\build\Release`    
+`4dface.exe -i Obama.mp4`
 
 
 ## Working with the libraries
