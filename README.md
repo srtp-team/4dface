@@ -1,25 +1,7 @@
-# 4dface: Real-time 3D face tracking and reconstruction from 2D video
-[![Latest release](http://img.shields.io/github/release/patrikhuber/4dface.svg?style=flat-square)][release]
-[![Linux build status of master branch](https://img.shields.io/travis/patrikhuber/4dface/master.svg?style=flat-square&label=Linux%3A%20build)][travis]
-[![Windows build status of master branch](https://ci.appveyor.com/api/projects/status/ed5slvlhl0lpbu8j/branch/master?svg=true&passingText=Windows%3A%20build%20passing&failingText=Windows%3A%20build%20failing&pendingText=Windows%3A%20build%20pending)][appveyor]
-[![Apache License 2.0](https://img.shields.io/github/license/patrikhuber/4dface.svg?style=flat-square)][license]
-[![Webpage](https://img.shields.io/badge/webpage-www.4dface.org-blue.svg?style=flat-square)][webpage]
-
-[release]: https://github.com/patrikhuber/4dface/releases
-[travis]: https://travis-ci.org/patrikhuber/4dface
-[appveyor]: https://ci.appveyor.com/project/patrikhuber/4dface/branch/master
-[license]: https://github.com/patrikhuber/4dface/blob/master/LICENSE
-[webpage]: http://www.4dface.org
-
-This is a demo app showing face tracking and 3D Morphable Model fitting on live webcams and videos. It builds upon the 3D face model library [eos](https://github.com/patrikhuber/eos) and the landmark detection and optimisation library [superviseddescent](https://github.com/patrikhuber/superviseddescent).
-
-(_caveat: due to recent additions, "real time" at the moment means around 5 fps._)
-
-### Note: This is a research demo from 2015/2016. 4dface has since been commercialised and an improved, up-to-date version is available on [www.4dface.io](https://www.4dface.io). This repository also contains an older version of the morphable face model fitting library _eos_. _eos_ is still in active development, head over to [github.com/patrikhuber/eos](https://github.com/patrikhuber/eos) for the latest version.
 
 ## Build & run
 
-1. Clone with submodules: `git clone --recursive git://github.com/patrikhuber/4dface.git`, or, if you've already cloned it, get the submodules with `git submodule update --init --recursive` inside the `4dface` directory.
+1. Clone with submodules: `git clone --recursive git://github.com/srtp-team/4dface.git`, or, if you've already cloned it, get the submodules with `git submodule update --init --recursive` inside the `4dface` directory.
 
 2. Make sure you've got boost (>=1.54.0 should do), OpenCV (>=3.0), Eigen (>=3.3.0) and a recent compiler (>=gcc-5, >=clang-4, >=VS2017) installed. For Ubuntu 14.04 and newer, this will do the trick:
     ```
@@ -41,13 +23,15 @@ This is a demo app showing face tracking and 3D Morphable Model fitting on live 
 
 4. Type `make` or build in Visual Studio.
 
-4. Type `make install`, or run the INSTALL target in Visual Studio, to copy all required files into a `share/` directory next to the executable.
+5. Type `make install`, or run the INSTALL target in Visual Studio, to copy all required files into a `share/` directory next to the executable.
+
+6.Move the file `movie_closeeye_isomap.isomap.png` `movie_openeye_isomap.isomap.png` and `Obama.mp4` to the path `4dface\build\Release`.
+
+7.Download file `face_landmarks_model_rcr_68.bin` from `https://pan.baidu.com/s/1qP4nR5Isw5_rxLmVEQu88g`.The key is`zoyy`.And put it in `\4dface\build` 
 
 Then just double-click the `4dface` app from the install-directory or run with `4dface -i videofile` to run on a video.
+example:  `cd   \4dface\build\Release`     `4dface.exe -i Obama.mp4`
 
-## Keyboard shortcuts
-
-When running the 4dface app, `q` quits, `r` resets the tracking, and `s` saves an OBJ of the current model to the hard disk (into the directory where it was run from).
 
 ## Working with the libraries
 
