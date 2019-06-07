@@ -132,7 +132,7 @@ public:
 	 * be able to add frames from a live video and merge them on-the-fly.
 	 *
 	 * The threshold means: Each triangle with a view angle smaller than the given angle will be used to merge.
-	 * The default threshold (90°) means all triangles, as long as they're a little bit visible, are merged.
+	 * The default threshold (90? means all triangles, as long as they're a little bit visible, are merged.
 	 *
 	 * @param[in] merge_threshold View-angle merge threshold, in degrees, from 0 to 90.
 	 */
@@ -143,7 +143,7 @@ public:
 		visibility_counter = cv::Mat::zeros(512, 512, CV_32SC1);
 		merged_isomap = cv::Mat::zeros(512, 512, CV_32FC4);
 
-		// map 0° to 255, 90° to 0:
+		// map 0?to 255, 90?to 0:
 		float alpha_thresh = (-255.f / 90.f) * merge_threshold + 255.f;
 		if (alpha_thresh < 0.f) // could maybe happen due to float inaccuracies / rounding?
 			alpha_thresh = 0.0f;
@@ -156,7 +156,7 @@ public:
 	 * @param[in] isomap The new isomap to add.
 	 * @return The merged isomap of all images processed so far, as 8UC4.
 	 */
-	cv::Mat add_and_merge(const cv::Mat& isomap)
+	cv::Mat add_and_merge( cv::Mat& isomap)
 	{
 		// Merge isomaps, add the current to the already merged, pixel by pixel:
 		for (int r = 0; r < isomap.rows; ++r)
@@ -210,8 +210,13 @@ public:
 		cv::Mat test(coefficients);
 		merged_shape_coefficients = (merged_shape_coefficients * num_processed_frames + test) / (num_processed_frames + 1.0f);
 		++num_processed_frames;
+		//cout<< merged_shape_coefficients <<endl;
 		return std::vector<float>(merged_shape_coefficients.begin<float>(), merged_shape_coefficients.end<float>());
 	};
+
+	cv::Mat get_merge() {
+		return merged_shape_coefficients;
+	}
 
 private:
 	int num_processed_frames = 0;
